@@ -8,7 +8,7 @@ const navLinks = [
   { href: "/", label: "Projects" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
-  { href: "https://wtplant.medium.com/", label: "Blog", external: true },
+  { href: "/blog", label: "Blog" },
 ];
 
 export default function Navbar() {
@@ -28,10 +28,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`sticky top-0 z-50 border-b border-surface bg-background/80 backdrop-blur-md transition-transform duration-300 ${hidden ? "-translate-y-full" : "translate-y-0"}`}>
+    <nav className={`sticky top-0 z-50 bg-background/80 backdrop-blur-md transition-transform duration-300 ${hidden ? "-translate-y-full" : "translate-y-0"}`}>
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        {/* Name / Logo */}
-        <Link href="/" className="text-lg font-semibold text-heading transition-colors hover:text-accent">
+        {/* Neon Name / Logo */}
+        <Link href="/" className="neon-sign text-3xl font-bold tracking-tight transition-colors sm:text-4xl">
           William Plant
         </Link>
 
@@ -53,7 +53,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm transition-colors hover:text-accent ${
-                  pathname === link.href ? "text-accent" : "text-body"
+                  (pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))) ? "text-accent" : "text-body"
                 }`}
               >
                 {link.label}
@@ -64,7 +64,7 @@ export default function Navbar() {
           {/* Social icons */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/wplant"
+              href="https://github.com/wtplant"
               target="_blank"
               rel="noopener noreferrer"
               className="text-body transition-colors hover:text-accent"
@@ -75,7 +75,7 @@ export default function Navbar() {
               </svg>
             </a>
             <a
-              href="https://www.linkedin.com/in/william-plant-jr/"
+              href="https://www.linkedin.com/in/wtplant/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-body transition-colors hover:text-accent"
@@ -106,7 +106,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-surface px-6 pb-4 md:hidden">
+        <div className="px-6 pb-4 md:hidden">
           {navLinks.map((link) =>
             link.external ? (
               <a
@@ -124,7 +124,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
                 className={`block py-2 text-sm transition-colors hover:text-accent ${
-                  pathname === link.href ? "text-accent" : "text-body"
+                  (pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))) ? "text-accent" : "text-body"
                 }`}
               >
                 {link.label}
@@ -133,7 +133,7 @@ export default function Navbar() {
           )}
           <div className="flex gap-4 pt-2">
             <a
-              href="https://github.com/wplant"
+              href="https://github.com/wtplant"
               target="_blank"
               rel="noopener noreferrer"
               className="text-body transition-colors hover:text-accent"
@@ -144,7 +144,7 @@ export default function Navbar() {
               </svg>
             </a>
             <a
-              href="https://www.linkedin.com/in/william-plant-jr/"
+              href="https://www.linkedin.com/in/wtplant/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-body transition-colors hover:text-accent"

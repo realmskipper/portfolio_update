@@ -1,14 +1,23 @@
-import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
 
 const projects = [
+  {
+    title: "Reikin",
+    description:
+      "A real estate intelligence platform for New York City. Search any NYC address to get an instant building health score (A-F grade) based on DOB violations, HPD violations, 311 complaints, and active permits across 1M+ properties. Includes free tools like a Rent Stabilization Checker, Broker Fee Calculator, and Rent Increase Checker.",
+    tags: ["Next.js", "Tailwind CSS", "Vercel", "Cloudflare"],
+    href: "https://www.reikin.app/",
+    external: true,
+    image: "/images/reikin.png",
+  },
   {
     title: "This Website",
     description:
       "Consolidated five separate deployments — a Django app on AWS Lightsail, a Streamlit dashboard on EC2, and a chatbot on Azure — into this single Next.js application on Vercel. Reduced hosting costs from ~$30/month to $0.",
     migration: "Previously: Django/Lightsail + Streamlit/EC2 + Azure → Now: Next.js on Vercel",
-    tags: ["Next.js", "React", "Tailwind CSS", "Vercel"],
-    image: "/images/dp.jpg",
+    tags: ["Claude Code"],
+    image: "/images/thiswebsite.png",
+    brighten: true,
   },
   {
     title: "Chat Assistant",
@@ -17,6 +26,7 @@ const projects = [
     migration: "Previously: Azure deployment → Now: Next.js API route on Vercel",
     tags: ["OpenAI API", "Next.js API Routes", "React"],
     href: "/chat",
+    image: "/images/x1939.png",
   },
   {
     title: "Live From the Blockchain",
@@ -32,7 +42,7 @@ const projects = [
     description:
       "A React application that serves axioms from Jenny Holzer's Truisms — an iconic series of provocative one-liners exploring themes of power, belief, and human nature. Deployed on GitHub Pages.",
     tags: ["React", "GitHub Pages"],
-    href: "https://wplant.github.io/truisms-app/",
+    href: "https://wtplant.github.io/truisms/",
     external: true,
     image: "/images/img_2.jpg",
   },
@@ -41,7 +51,7 @@ const projects = [
     description:
       "A Python bot that automatically posts curated content to a WordPress site on a daily schedule. Deployed on an Ubuntu server on AWS.",
     tags: ["Python", "AWS", "WordPress"],
-    href: "https://medium.com/@wtplant",
+    href: "https://wtplant.medium.com/automating-wordpress-with-python-and-ubuntu-4baca6c54bf9",
     external: true,
     image: "/images/AE.JPG",
   },
@@ -50,7 +60,7 @@ const projects = [
     description:
       "An aggregate food review site that compiled and curated restaurant reviews across New York City. Built with WordPress and custom HTML/CSS. Now archived.",
     tags: ["HTML", "CSS", "WordPress"],
-    href: "https://web.archive.org/web/2023/https://edibledialectic.com/",
+    href: "https://web.archive.org/web/20231202225034/http://www.edibledialect.com/",
     external: true,
     image: "/images/edible.JPG",
   },
@@ -59,31 +69,6 @@ const projects = [
 export default function Home() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-16 md:py-24">
-      {/* Intro */}
-      <section className="mb-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
-        <div className="relative shrink-0 overflow-hidden rounded-lg w-full md:w-72 lg:w-80">
-          <Image
-            src="/images/x1939.png"
-            alt="William Plant"
-            width={640}
-            height={800}
-            className="w-full h-auto rounded-lg"
-            sizes="(max-width: 768px) 100vw, 320px"
-            priority
-          />
-        </div>
-        <div className="flex-1 text-center md:text-left">
-          <h1 className="neon-sign text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            William
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-body">
-            I build things for the web. This site itself is a project — I migrated a
-            Django app on AWS Lightsail, a Streamlit dashboard on EC2, and a chatbot
-            on Azure into this single Next.js application on Vercel.
-          </p>
-        </div>
-      </section>
-
       {/* Projects */}
       <section>
         <h2 className="mb-8 text-sm font-semibold uppercase tracking-widest text-muted">
