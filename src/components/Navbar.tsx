@@ -37,29 +37,17 @@ export default function Navbar() {
 
         {/* Desktop nav links */}
         <div className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) =>
-            link.external ? (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-body transition-colors hover:text-accent"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm transition-colors hover:text-accent ${
-                  (pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))) ? "text-accent" : "text-body"
-                }`}
-              >
-                {link.label}
-              </Link>
-            )
-          )}
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-sm transition-colors hover:text-accent ${
+                (pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))) ? "text-accent" : "text-body"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
 
           {/* Social icons */}
           <div className="flex items-center gap-4">
@@ -107,30 +95,18 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="px-6 pb-4 md:hidden">
-          {navLinks.map((link) =>
-            link.external ? (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block py-2 text-sm text-body transition-colors hover:text-accent"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className={`block py-2 text-sm transition-colors hover:text-accent ${
-                  (pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))) ? "text-accent" : "text-body"
-                }`}
-              >
-                {link.label}
-              </Link>
-            )
-          )}
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className={`block py-2 text-sm transition-colors hover:text-accent ${
+                (pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))) ? "text-accent" : "text-body"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
           <div className="flex gap-4 pt-2">
             <a
               href="https://github.com/wtplant"
